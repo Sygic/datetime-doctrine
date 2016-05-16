@@ -10,6 +10,11 @@ class DateImmutableType extends \Doctrine\DBAL\Types\DateType
 {
     const NAME = 'date_immutable';
 
+    public function getName()
+    {
+        return self::NAME;
+    }
+
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
         if ($value === null || $value instanceof DateTimeImmutable) {
