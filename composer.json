@@ -1,0 +1,27 @@
+{
+  "name": "pauci/datetime-doctrine",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pavol Kirschbaum",
+      "email": "pauci.sk@gmail.com"
+    }
+  ],
+  "require": {
+    "pauci/datetime": "^0.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.3",
+    "doctrine/orm": "^2.5"
+  },
+  "autoload": {
+    "psr-4": {"Pauci\\DateTime\\Doctrine\\": "src/"}
+  },
+  "autoload-dev": {
+    "psr-4": {"Pauci\\DateTime\\Doctrine\\Test\\": "tests/src/"}
+  },
+  "scripts": {
+    "test": "phpunit"
+  }
+}
