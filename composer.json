@@ -9,7 +9,8 @@
     }
   ],
   "require": {
-    "pauci/datetime": "^0.2.0"
+    "php": "^7.1",
+    "pauci/datetime": "^0.3.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^5.3",

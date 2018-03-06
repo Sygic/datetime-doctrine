@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Pauci\DateTime\Doctrine;
 
@@ -10,22 +11,22 @@ class DateIntervalType extends Type
 {
     const NAME = 'date_interval';
 
-    public function getName()
+    public function getName(): string
     {
         return self::NAME;
     }
 
-    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
+    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {
         return $platform->getVarcharTypeDeclarationSQL($fieldDeclaration);
     }
 
-    public function convertToDatabaseValue($value, AbstractPlatform $platform)
+    public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
     {
         return $value !== null ? (string) $value : null;
     }
 
-    public function convertToPHPValue($value, AbstractPlatform $platform)
+    public function convertToPHPValue($value, AbstractPlatform $platform): ?DateInterval
     {
         if (null === $value || $value instanceof DateInterval) {
             return $value;
