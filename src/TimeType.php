@@ -7,6 +7,7 @@ use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
 use Pauci\DateTime\DateTime;
 use Pauci\DateTime\DateTimeInterface;
+use Pauci\DateTime\Exception\InvalidTimeStringException;
 
 class TimeType extends \Doctrine\DBAL\Types\TimeType
 {
@@ -16,16 +17,15 @@ class TimeType extends \Doctrine\DBAL\Types\TimeType
             return $value;
         }
 
-        $val = DateTime::createFromFormat('!' . $platform->getTimeFormatString(), $value);
-
-        if (!$val) {
+        try {
+            return DateTime::createFromFormat('!' . $platform->getTimeFormatString(), $value);
+        } catch (InvalidTimeStringException $e) {
             throw ConversionException::conversionFailedFormat(
                 $value,
                 $this->getName(),
-                $platform->getTimeFormatString()
+                $platform->getTimeFormatString(),
+                $e
             );
         }
-
-        return $val;
     }
 }

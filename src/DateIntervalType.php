@@ -9,16 +9,16 @@ use Pauci\DateTime\DateInterval;
 
 class DateIntervalType extends Type
 {
-    const NAME = 'date_interval';
+    public const NAME = 'date_interval';
 
     public function getName(): string
     {
         return self::NAME;
     }
 
-    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
+    public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
     {
-        return $platform->getVarcharTypeDeclarationSQL($fieldDeclaration);
+        return $platform->getVarcharTypeDeclarationSQL($column);
     }
 
     public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
