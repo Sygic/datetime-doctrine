@@ -11,14 +11,14 @@
     ],
     "require": {
         "php": "^7.3 | ^8.0",
-        "pauci/datetime": "^0.3.6",
-        "squizlabs/php_codesniffer": "^3.5"
+        "pauci/datetime": "^0.3.6"
     },
     "require-dev": {
         "doctrine/orm": "^2.8",
         "php-parallel-lint/php-parallel-lint": "^1.2",
         "phpstan/phpstan": "^0.12.58",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "squizlabs/php_codesniffer": "^3.5"
     },
     "autoload": {
         "psr-4": {"Pauci\\DateTime\\Doctrine\\": "src/"}
